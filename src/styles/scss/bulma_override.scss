@@ -1,0 +1,53 @@
+$column-gap: 1rem;
+$subtitle-color: #9ba4a9;
+$primary: #0b4d99;
+$secondary: #039394;
+$dark-gary: #4a4a4a;
+$green: #17c417;
+$red: #ff2e23;
+$section-padding: 2rem 1.5rem;
+$navbar-item-color: inherit;
+$modal-background-background-color: transparent;
+$navbar-background-color: transparent;
+$navbar-dropdown-background-color: transparent;
+$-hover-background-color: transparent;
+$navbar-box-shadow-color: transparent;
+$box-padding: 1rem;
+$fullhd: 1500px;
+$text-strong: inherit;
+$title-color: inherit;
+$link-hover: inherit;
+$table-background-color: transparent;
+$box-background-color: transparent;
+$box-color: inherit;
+$body-size: 16px;
+$navbar-item-img-max-height: 2.5rem;
+$body-family: -apple-system, BlinkMacSystemFont, "KoHo", "Roboto", "Oxygen",
+"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+sans-serif;
+$title: 30px;
+$breadcrumb-item-separator-color: $dark-gary;
+
+$navbar-dropdown-item-hover-background-color: transparent;
+$navbar-dropdown-background-color: transparent;
+// $navbar-dropdown-boxed-shadow: none;
+
+@import "~bulma/sass/utilities/_all";
+@import "~bulma/sass/base/_all";
+@import "~bulma/sass/elements/container";
+@import "~bulma/sass/elements/image";
+@import "~bulma/sass/elements/button";
+@import "~bulma/sass/elements/title";
+@import "~bulma/sass/elements/box";
+// @import "~bulma/sass/elements/table";
+// @import "~bulma/sass/elements/form";
+@import "~bulma/sass/elements/tag";
+@import "~bulma/sass/components/breadcrumb";
+@import "~bulma/sass/components/card";
+@import "~bulma/sass/components/menu";
+@import "~bulma/sass/components/level";
+@import "~bulma/sass/components/media";
+@import "~bulma/sass/components/navbar";
+@import "~bulma/sass/layout/_all";
+@import "~bulma/sass/grid/columns";
+@import "~bulma/sass/grid/tiles";

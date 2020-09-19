@@ -1,0 +1,143 @@
+@import "./global/number";
+@import "./global/chart";
+@import "./helper";
+@import "./global/navbar";
+@import "./bulma_override";
+@import url("https://fonts.googleapis.com/css?family=KoHo");
+
+$navbar-item-hover-color: unset;
+
+.app-container {
+  height: inherit;
+  font-size: 16px;
+  display: flex;
+  display: -webkit-flex;
+  background-color: black;
+  justify-content: center;
+}
+
+input,
+textarea {
+  // border: none;
+  display: block;
+  // background: transparent;
+  position: relative;
+  // outline: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+textarea {
+  font-size: smaller;
+}
+
+input {
+  &:after {
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #cecece;
+  }
+}
+
+#line-compare-box {
+  font-size: 14px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.recharts-legend-item > .recharts-surface {
+  width: 21px;
+  height: 21px;
+  margin-top: -3px;
+}
+
+.breadcrumb {
+  font-weight: bold;
+}
+
+.breadcrumb-separator {
+  font-size: 23px;
+  margin-top: -2px;
+  font-weight: normal;
+  font-family: Georgia, "KoHo", "Roboto", sans-serif;
+}
+
+.table-buttons {
+  box-shadow: rgb(241, 240, 240) -1px 1px 7px 0px !important;
+  border-radius: 5px !important;
+  padding: 5px !important;
+  background: transparent !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  color: rgb(74, 74, 74);
+  // border-color: rgb(74, 74, 74) !important;
+  border-image: initial !important;
+  outline: none;
+}
+
+.nav-bar-search-input-container input {
+  border: none !important;
+}
+
+.ui.search .prompt ~ .search.icon {
+  cursor: pointer;
+  display: none;
+}
+
+.ui.icon.input > input {
+  padding-right: 0 !important;
+  width: 120px;
+}
+
+.ui.search > .results {
+  height: 500px;
+  overflow-y: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+.ui.search > .results::-webkit-scrollbar {
+  display: none;
+}
+
+.style-table-download-button {
+  cursor: pointer;
+  padding: 5px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  margin-top: 17px !important;
+  margin-right: 11px !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .display-mobile-version {
+    display: block;
+    height: inherit;
+    width: inherit;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .display-desktop-version {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .display-mobile-version {
+    display: none;
+  }
+  .display-desktop-version {
+    display: block;
+    width: inherit;
+    height: inherit;
+  }
+}

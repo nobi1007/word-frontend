@@ -1,0 +1,126 @@
+@import "../bulma_override";
+// .ReactTable {
+//     border: none;
+
+//     .rt-tr {
+//         padding: 10px 0;
+//         align-items: center;
+//         border-bottom: 1px solid #dbdbdb;
+
+//         // &.-odd {
+//         //     background-color: #f6f6f6;
+//         // }
+//     }
+
+//      .rt-thead.-header {
+//          box-shadow: none;
+//          font-weight: bold;
+//         //  border-bottom: 2px solid #dbdbdb;
+//      }
+
+//      .rt-resizable-header {
+//         border: none!important;
+//      }
+
+//      .rt-th.-sort-desc {
+//         box-shadow: none!important;
+//         position: relative;
+
+//         &:after {
+//             content: "";
+//             position: absolute;
+//             left: 86%;
+//             top: 50%;
+//             transform: translateY(-50%);
+//             height: 0;
+//             border-width: 5px;
+//             border-style: solid;
+//             border-color:  #cecece transparent  transparent  transparent;
+//         }
+
+//      }
+
+//      .rt-th.-sort-asc {
+//         box-shadow: none!important;
+//         position: relative;
+
+//         &:after {
+//             content: "";
+//             position: absolute;
+//             left: 86%;
+//             top: 50%;
+//             transform: translateY(-50%);
+//             height: 0;
+//             border-width: 5px;
+//             border-style: solid;
+//             border-color: transparent  transparent #cecece transparent;
+//         }
+
+//      }
+
+//       .rt-tbody {
+//         .rt-td, .rt-tr-group {
+//             border: none!important;
+//           }
+
+//         .rt-tr {
+//             &:hover {
+//                 background: #f7f7f7;
+//             }
+//         }
+
+//       }
+
+// }
+
+.rt-td {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word !important;
+  white-space: pre-line !important;
+}
+
+.image {
+  text-align: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center !important;
+}
+
+.rt-th {
+  height: 4rem;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  // align-items: center;
+  font-weight: bold;
+  white-space: pre-line !important;
+  word-wrap: break-word;
+  //   align-items: flex-start;
+}
+
+.styleLinkTd {
+  :hover {
+    color: $primary;
+  }
+}
+
+.markdown {
+  color: $red;
+}
+
+.replenish {
+  color: $green;
+}
+
+.rt-noData {
+  margin-top: 100px;
+  font-weight: bold;
+}
+
+.rt-tbody {
+  max-height: 500px;
+  overflow-x: hidden !important;
+}

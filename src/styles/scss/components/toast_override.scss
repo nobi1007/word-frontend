@@ -1,0 +1,10 @@
+.Toastify__toast {
+    border-radius: 10px;
+    &--error {
+        background: #f95624;
+    }
+
+    &--success {
+        background: #62ca6b;
+    }
+}

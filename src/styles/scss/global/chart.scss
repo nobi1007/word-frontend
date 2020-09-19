@@ -1,0 +1,41 @@
+// Override rechart css
+.recharts-surface {
+  overflow: visible;
+}
+// End of rechart css
+
+.recharts-cartesian-axis-tick {
+  width: 100%;
+}
+
+tspan {
+  white-space: pre;
+  font-size: 12px;
+}
+
+.chart {
+  &__yAxis {
+    &_labels {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      min-width: 100px;
+      text-transform: capitalize;
+    }
+    &_label {
+      cursor: pointer;
+
+      &--has-active {
+        font-weight: bold;
+      }
+    }
+  }
+  &__wrapper {
+    position: relative;
+  }
+}
+
+.css-15i6xvo-multiValue {
+  border-radius: 0px !important;
+}

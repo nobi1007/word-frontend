@@ -1,0 +1,45 @@
+$navbar-item-width: 120px;
+$navbar-item-height: 32px;
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-menu {
+  svg,
+  rect {
+    width: $navbar-item-width;
+    height: $navbar-item-height;
+  }
+
+  .shape {
+    fill: transparent;
+    stroke-width: 8px;
+    stroke-dashoffset: -163;
+    stroke-dasharray: 95 277;
+    stroke: #19f6e8;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+  }
+
+  .navbar-sub-item:hover .navbar-sub-hover-container {
+    display: flex !important;
+  }
+
+  .navbar-sub-hover-container {
+    display: none !important;
+  }
+
+  a.navbar-item:focus,
+  a.navbar-item:focus-within,
+  a.navbar-item:hover,
+  a.navbar-item.is-active,
+  .navbar-link:focus,
+  .navbar-link:focus-within,
+  .navbar-link:hover,
+  .navbar-link.is-active {
+    background-color: #fff;
+    // color: #3273dc;
+    color: #000;
+    opacity: 0.6;
+  }
+}
