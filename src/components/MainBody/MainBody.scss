@@ -1,18 +1,39 @@
+html,
+body,
+#root {
+  min-height: 100%;
+  height: inherit;
+  background-color: #000;
+  font-family: "Kumbh Sans", sans-serif;
+}
 .main-body {
   background-color: #774262;
   color: white;
-  width: 60%;
+  width: 500px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   .header {
     display: flex;
     padding: 20px;
+    align-items: center;
     .title {
       flex: 1 1 auto;
       font-size: 42px;
+      margin-bottom: 0px;
     }
     .input-btn {
       width: 200px;
+    }
+
+    @media only screen and (max-width: 450px) {
+      .title {
+        font-size: 1.5em;
+      }
+      .input-btn {
+        width: 140px;
+        height: 48px;
+      }
     }
   }
   .display {
@@ -26,6 +47,23 @@
       font-weight: 800;
       height: 60px;
       padding-left: 44px;
+    }
+
+    .word-list {
+      padding: 30px;
+
+      .word-list-heading {
+        text-transform: capitalize;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .words-list-type-container {
+        text-transform: lowercase;
+        font-size: 14px;
+        margin-right: 10px;
+        font-style: italic;
+      }
     }
 
     .float-btn {
@@ -58,4 +96,6 @@
 .add-word-modal-container button {
   height: 42.69px !important;
   margin-left: 20px !important;
+  background-color: #774262 !important;
+  color: #fff !important;
 }

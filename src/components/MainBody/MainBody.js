@@ -17,19 +17,17 @@ import "./MainBody.scss";
 import { fetchWordsQuery } from "../../graphql/query.graphql";
 import { addWordMutation } from "../../graphql/mutation.graphql";
 
+import { getWords } from "../../reducers/selector";
+
 class MainBody extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      wordValue: "",
       wordOptions: [],
       isAddWordOpened: false,
       inputValue: "",
+      isSaving: false,
     };
-  }
-
-  componentDidMount() {
-    console.log("DId mount", this.props);
   }
 
   componentDidUpdate(oldProps) {
@@ -45,13 +43,6 @@ class MainBody extends PureComponent {
       onGetWordsAction(this.props.data.getWords);
     }
   }
-
-  handleWordChange = (e, data) => {
-    this.setState({
-      wordValue: data.value,
-    });
-    console.log("word changed", this.state.wordValue);
-  };
 
   getAllOptions = () => {
     const { allIds } = this.props;
@@ -91,9 +82,40 @@ class MainBody extends PureComponent {
     const { inputValue } = this.state;
     const { addWordMutation, addWordAction } = this.props;
     if (inputValue) {
-      addWordAction(inputValue, addWordMutation);
-      console.log("Input Value", inputValue);
+      this.setState({
+        isSaving: true,
+      });
+
+      addWordAction(inputValue.toLowerCase(), addWordMutation);
+      setTimeout(() => {
+        this.setState({
+          isSaving: false,
+          inputValue: "",
+        });
+        this.onClose();
+      }, 500);
     }
+  };
+
+  getType = (typeList) => {
+    return map(typeList, (typeData, index) => {
+      return (
+        <div key={index} style={{ display: "flex", fontSize: "14px" }}>
+          <div className="words-list-type-container">({typeData.type})</div>
+          {typeData.meanings &&
+            typeData.meanings.length &&
+            this.getMeanings(typeData.meanings)}
+        </div>
+      );
+    });
+  };
+
+  getMeanings = (meanings) => {
+    let meaningData = "";
+    meanings.forEach((meaning) => {
+      meaningData = `${meaning}; `;
+    });
+    return <div>{meaningData}</div>;
   };
 
   getWords = () => {
@@ -101,15 +123,17 @@ class MainBody extends PureComponent {
     return map(allIds, (wordId, index) => {
       const wordData = findWordById(wordId);
       return (
-        <div style={{ color: "#000" }}>
-          <div>{wordData.wordName}</div>
+        <div key={index} style={{ color: "#000", marginBottom: "20px" }}>
+          <div className="word-list-heading">{wordData.wordName}</div>
+          {wordData.desc && wordData.desc.length && this.getType(wordData.desc)}
         </div>
       );
     });
   };
 
   render() {
-    const { wordValue, wordOptions, isAddWordOpened, inputValue } = this.state;
+    const { isAddWordOpened, inputValue, isSaving } = this.state;
+    const { wordValue, handleWordChange, handleSearchValue } = this.props;
     return (
       <div className="main-body">
         <div className="header">
@@ -119,11 +143,13 @@ class MainBody extends PureComponent {
               className="word-picker"
               fluid
               selection
+              clearable
               search={true}
               options={this.getAllOptions()}
               value={wordValue}
               placeholder="Search"
-              onChange={this.handleWordChange}
+              onChange={handleWordChange}
+              onSearchChange={handleSearchValue}
             />
           </div>
         </div>
@@ -151,6 +177,7 @@ class MainBody extends PureComponent {
               content="Add Word"
               disabled={inputValue ? false : true}
               onClick={this.postWord}
+              loading={isSaving}
             />
           </div>
         </Modal>
@@ -169,7 +196,7 @@ const MainBodyQuery = graphql(fetchWordsQuery, {
 
 const mapStateToProps = (state, props) => {
   return {
-    allIds: state.MainReducer.word.allIds,
+    allIds: getWords(state, props),
     byId: state.MainReducer.word.byId,
   };
 };

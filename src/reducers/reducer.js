@@ -12,7 +12,9 @@ import { GET_WORDS } from "./actions";
 const MainReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_WORDS:
-      const { wordIdList, wordById } = action.payload;
+      let { wordIdList, wordById } = action.payload;
+      wordIdList = [...wordIdList];
+      wordIdList.sort();
       state = {
         ...state,
         word: {

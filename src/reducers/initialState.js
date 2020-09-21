@@ -7,14 +7,6 @@
  */
 
 export default {
-  login: {
-    isUserAuthenticated: false,
-    username: "",
-  },
-  channel: {
-    allChannelsDict: {},
-    allChannelsId: [],
-  },
   word: {
     allIds: [],
     byId: {},

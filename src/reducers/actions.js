@@ -31,7 +31,7 @@ export const addWordAction = (word, mutation) => {
       },
     })
       .then((response) => {
-        console.log("Saveed data", response);
+        // console.log("Saveed data", response);
         if (response && response.data && response.data.addWord) {
           const wordIdList = state.MainReducer.word.allIds;
           const wordById = state.MainReducer.word.byId;
@@ -49,7 +49,7 @@ export const addWordAction = (word, mutation) => {
         }
       })
       .catch((error) => {
-        console.error("Error in saving word", error);
+        // console.error("Error in saving word", error);
       });
   };
 };
